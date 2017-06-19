@@ -102,7 +102,7 @@ public class MovLeap : MonoBehaviour {
             {
 
                 aux_pause = true;
-                aux_pauseMenu = true;
+                //aux_pauseMenu = true;
                 Time.timeScale = 0;
 
 
@@ -245,8 +245,8 @@ public class MovLeap : MonoBehaviour {
 		Application.LoadLevel("Capitulo 5");
 	}
 	if(nome == "Cap5"){
-		aux_incrivel = true;
-	}
+        Application.LoadLevel("Menu");
+    }
 }
 
 void OnGUI () {
@@ -303,56 +303,14 @@ void OnGUI () {
 	}
 	
 	if(aux_go){
-		
-		Time.timeScale = 0;
-		
-		Cursor.visible = true;
-		
-		aux_pause = true;
-		
-		GUI.skin = Skin_Menu;
-
-        tamx = UnityEngine.Screen.width * 0.13f;
-        tamy = UnityEngine.Screen.height * 0.1f;
-
-        posx = UnityEngine.Screen.width / 7f;
-        posy = UnityEngine.Screen.height / 1.2f - tamy / 2f;
-        Style_Menu.fontSize = (int)(0.03 * (UnityEngine.Screen.width + UnityEngine.Screen.height));
-
-        GUI.DrawTexture(new Rect(UnityEngine.Screen.width / 3, UnityEngine.Screen.height / 10, UnityEngine.Screen.width / 3, UnityEngine.Screen.height / 10), img_go);
-
-        GUI.DrawTexture(new Rect(UnityEngine.Screen.width / 3, UnityEngine.Screen.height / 3, UnityEngine.Screen.width / 3, UnityEngine.Screen.height / 3), img_feriu);
-
-        Style_Menu.fontSize = (int)(0.015 * (UnityEngine.Screen.width + UnityEngine.Screen.height));
-		
-		if (GUI.Button(new Rect(posx,posy,tamx,tamy), "Reiniciar", Style_Menu)) {
-			Som.Play();
-			aux_pause = false;
-			aux_go = false;
-			Cursor.visible = false;
-			Time.timeScale = 1;
-			Application.LoadLevel(Application.loadedLevel);
-		}
-
-        posx += UnityEngine.Screen.width / 7;
-        posx += UnityEngine.Screen.width / 7;
-		
-		if (GUI.Button(new Rect(posx,posy,tamx,tamy), "Menu", Style_Menu)) {
-			Som.Play();
-			aux_pause = false;
-			aux_go = false;
-			Time.timeScale = 1;
-			Application.LoadLevel("Menu");
-		}
-
-        posx += UnityEngine.Screen.width / 7;
-        posx += UnityEngine.Screen.width / 7;
-		
-		if (GUI.Button(new Rect(posx,posy,tamx,tamy), "Sair", Style_Menu)) {
-			Som.Play();
-			Application.Quit();
-		}
-	}
+            
+            Som.Play();
+            aux_pause = false;
+            aux_go = false;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+            Application.LoadLevel(Application.loadedLevel);
+      }
 	
 	if(aux_incrivel){
 		
